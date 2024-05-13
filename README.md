@@ -61,3 +61,200 @@ All the Files from the external HTTP has to be ingested using Azure Data Factory
 
 ![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/9ff55adb-e5f8-40e2-8d45-07abf058a541)
 
+## Connection of Azure Blob with Snowflake:
+
+## Snowflake:
+Snowflake is a cloud-based data warehousing platform that provides a fully managed service for storing, processing, and analyzing large volumes of data. It offers elasticity and scalability, separating compute and storage resources to optimize performance and cost-effectiveness. Snowflake's multi-cluster shared data architecture enables concurrent access to shared data without data duplication, enhancing collaboration and data consistency. With built-in security features, native integrations, and performance optimization capabilities, Snowflake simplifies data management and analytics, empowering organizations to derive actionable insights from their data efficiently and securely.
+
+### Creating a Snowflake Warehouse:
+In Snowflake, a "warehouse" refers to a computing resource used for processing queries and running tasks such as data loading, transformations, and analytics. Snowflake provides a fully managed, scalable, and elastic computing environment known as a "virtual warehouse."
+
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/c7073d72-d5ea-4235-bbe1-c7c933c3722e)
+Extra Small warehouse with Auto Suspend and Auto Active Option enabled.
+
+- Now Create a new Worksheet:
+- Create Database:
+```sql
+CREATE OR REPLACE DATABASE azure;
+```
+
+- Create Schema: 
+```sql
+CREATE OR REPLACE SCHEMA worldcup;
+```
+
+
+- Creating a storage Integration with Azure Blob Storage
+- Tenent_id can be found in Active Directory.
+```sql
+CREATE STORAGE INTEGRATION snow_azure_int
+  TYPE = EXTERNAL_STAGE
+  STORAGE_PROVIDER = AZURE
+  ENABLED = TRUE
+  AZURE_TENANT_ID = 'e7e7c7fe-52e1-4d71-9fdb-23d4e4d01k98'
+  STORAGE_ALLOWED_LOCATIONS = ('azure://2023worldcup.blob.core.windows.net/2023worldcup/Raw Data');
+
+```
+
+
+
+- Describing the storage Integration to get the concent URL and Tenant App Name.
+```sql
+DESC STORAGE INTEGRATION snow_azure_int;
+```
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/8aeb9e78-48a0-42df-9baf-4b7696844725)
+
+-- Creating a file format with type csv.
+```sql
+CREATE OR REPLACE file format fileformat
+    type = csv
+    field_delimiter = ','
+    skip_header = 1
+    empty_field_as_null = TRUE; 
+```
+### Adding role to the Snowflake account so that it can contribute to the Blob Storage
+
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/62f38ed9-99be-4e69-b1ee-e3563df54f87)
+
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/5bdda56e-bea0-4791-b4a2-fd21e18bec98)
+
+
+- Creating the stage that will hold the data
+```sql
+create or replace stage azure.public.stage_azure
+    STORAGE_INTEGRATION = snow_azure_int
+    URL = 'azure://2023worldcup.blob.core.windows.net/2023worldcup/Raw Data'
+    FILE_FORMAT = fileformat;
+
+```
+
+
+- list the dataset that is present in the container(Storage Account)
+```sql
+
+LIST @azure.worldcup.stage_azure;
+```
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/c42edf5e-2edc-4b36-9a4a-fa195924b2ba)
+
+
+
+- Loading the players table:
+```sql
+create table players(
+player_name varchar(100),
+team_name varchar(100),
+batting_style varchar(100),
+bowling_style varchar(100),
+player_role varchar(100)
+);
+
+copy into players
+from (select $1,
+$2,
+$4,
+$5,
+$6
+from  @azure.public.stage_azure/Players);
+
+select * from players;
+
+```
+
+
+
+- Loading the Batting table:
+```sql
+
+create or replace table batting(
+match_no int,
+match_between varchar(100),
+team_innings varchar(100),
+batsman_name varchar(100),
+batting_position int,
+dismissal varchar(100),
+runs int,
+balls int,
+Fours int,
+Sixes int,
+strike_rate varchar(100));
+
+
+copy into batting 
+from (select $1,
+$2,
+$3,
+$4,
+$5,
+$6,
+$7,
+$8,
+$9,
+$10,
+$11
+from  @azure.public.stage_azure/Batting);
+```
+
+
+- Loading the Bowling data
+```sql
+create table bowling(
+match_no int,
+match_between varchar(200),
+bowling_team varchar(200),
+bowler_name varchar(100),
+over int,
+maidens int,
+runs int,
+wickets int,
+economy double
+);
+
+
+copy into bowling 
+from (select $1,
+$2,
+$3,
+$4,
+$5,
+$6,
+$7,
+$8,
+$9
+from  @azure.public.stage_azure/Bowling);
+
+```
+
+
+- Loading Matches Data
+
+```sql
+create or replace table matches(
+match_no int,
+date varchar(20),
+venue varchar(200),
+team1 varchar(100),
+team2 varchar(100),
+winner varchar(100)
+);
+
+copy into matches 
+from (select $1,
+$2,
+$3,
+$4,
+$5,
+$6
+from  @azure.public.stage_azure/Matches);
+```
+
+## Batting Stats for the world Cup 2023
+Query Here:
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/bc8ccb59-1b31-41dc-9e7d-8d72c5430e82)
+
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/6ff774ec-15ab-48ad-b81f-e60a95317a8c)
+
+## Bowling Stats for the world Cup 2023
+Query Here:
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/ced90bf8-bf02-4957-86f5-8c19f68e22f8)
+
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/5c965dae-1fca-4c29-9298-4cc47f0f7368)
