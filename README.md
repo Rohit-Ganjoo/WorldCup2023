@@ -1,5 +1,7 @@
 # Azure Cloud Service integration with Snowflake
 
+[Link to the dataset](https://www.kaggle.com/datasets/enggbilalalikhan/odi-world-cup-2023-complete-dataset)
+
 ### Creating the Azure storage Account
 An Azure Storage Account is a cloud-based storage solution provided by Microsoft Azure. It offers a scalable, secure, and highly available storage platform for various data types, including blobs, files, queues, tables, and disks. These storage services can be used to store and manage data for applications running on Azure or on-premises.
 
