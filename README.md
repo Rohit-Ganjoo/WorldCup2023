@@ -253,7 +253,42 @@ Query Here:
 
 ![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/fe72fe5f-b211-4820-a85b-33db386b02b3)
 
+## Batting Analysis 
+> Highest Run Scorers:
 
+ 1. Virat Kohli  (765)
+ 2. Quinton de-Kock (706)
+ 3. Rohit Sharma (597)
+
+ 
+ 
+> Top Batsman with Highest Strike Rate:
+
+ 1. Gus Atkinson (166.67)
+ 2. Glenn Maxwell(162.81)
+ 3. Haris Rauf(152.17)
+
+
+>Top Boundary Hitters
+
+ 1. Rohit Sharma(450) 31(6)/66(4)
+ 2. Quinton de-Kock(416) 26(6)/65(4)
+ 3. David Warner(380) 28(6)/53(4)
+
+ 
+> Highest Scorers in Single innings
+
+ 1. Glenn Maxwell 201*
+ 2. Mitchell Marsh 177
+ 3. Quinton de-Kock 174
+ 
+ 
+
+> Top Batting Average Batsman
+
+ 1. Virat Kohli 95.63
+ 2. Kane Williamson 85.3
+ 3. KL Rahul 75.3
 
 ## Bowling Stats for the world Cup 2023
 Query Here:
