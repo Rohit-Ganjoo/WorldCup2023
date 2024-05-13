@@ -296,3 +296,40 @@ Query Here:
 
 ![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/3c5a556e-e25d-4b8d-883f-0ffc454a222c)
 
+## Bowling Analysis
+
+> Highest Wicket Takers:
+
+ 1. Mohammed Shami (IND) (24)
+ 2. Adam Zampa (AUS) (23)
+ 3. Dilshan Madushanka (SL) (21)
+
+ 
+ 
+> Bowlers with Best Economy:
+
+ 1. Ravichandran Ashwin (IND) (3.40)
+ 2. Jasprit Bumrah (IND) (4.05)
+ 3. Mohammad Nabi (AFG) (4.16)
+
+
+>Best Inning Bowling stats (Wickets/Runs)
+
+ 1. Mohammed Shami (IND) (5/18)
+ 2. Adam Zampa (AUS) (4/8)
+ 3. Logan van Beek (NED) (4/74)
+
+ 
+> Best Bowling Average (Runs / Wickets)
+
+ 1. Mohammed Shami (IND) (9.00)
+ 2. Mitchell Marsh (AUS) (9.50)
+ 3. Travis Head (AUS) (10.50)
+ 
+ 
+
+> Bowler taken 4+ wickets in a single inning
+
+ 1. Mohammed Shami (IND) (3)
+ 2. Dilshan Madushanka (SL) (1)
+ 3. Shaheen Afridi (PAK) (1)
