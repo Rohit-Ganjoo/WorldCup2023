@@ -249,7 +249,7 @@ from  @azure.public.stage_azure/Matches);
 
 ## Batting Stats for the world Cup 2023
 Query Here:
-![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/bc8ccb59-1b31-41dc-9e7d-8d72c5430e82)
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/ce2b4dda-fbea-4a02-a25f-99651db51c44)
 
 ![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/fe72fe5f-b211-4820-a85b-33db386b02b3)
 
