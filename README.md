@@ -251,10 +251,13 @@ from  @azure.public.stage_azure/Matches);
 Query Here:
 ![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/bc8ccb59-1b31-41dc-9e7d-8d72c5430e82)
 
-![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/6ff774ec-15ab-48ad-b81f-e60a95317a8c)
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/fe72fe5f-b211-4820-a85b-33db386b02b3)
+
+
 
 ## Bowling Stats for the world Cup 2023
 Query Here:
-![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/ced90bf8-bf02-4957-86f5-8c19f68e22f8)
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/956e90b4-934d-45d5-8d45-72e0abdf05aa)
 
-![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/5c965dae-1fca-4c29-9298-4cc47f0f7368)
+![image](https://github.com/Rohit-Ganjoo/WorldCup2023/assets/143324573/3c5a556e-e25d-4b8d-883f-0ffc454a222c)
+
